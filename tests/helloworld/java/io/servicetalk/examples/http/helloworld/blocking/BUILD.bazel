@@ -1,0 +1,61 @@
+load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+
+java_library(
+    name = "BlockingHelloWorldClient",
+    srcs = ["BlockingHelloWorldClient.java"],
+    resources = ["//java/resources:log4j.xml"],
+    deps = [
+        "@maven//:io_servicetalk_servicetalk_http_api",
+        "@maven//:io_servicetalk_servicetalk_http_netty",
+    ],
+)
+
+java_binary(
+    name = "blocking_client",
+    main_class = "io.servicetalk.examples.http.helloworld.blocking.BlockingHelloWorldClient",
+    runtime_deps = [":BlockingHelloWorldClient"],
+)
+
+java_library(
+    name = "BlockingHelloWorldServer",
+    srcs = ["BlockingHelloWorldServer.java"],
+    resources = ["//java/resources:log4j.xml"],
+    runtime_deps = [
+        "@maven//:org_slf4j_slf4j_api",
+    ],
+    deps = [
+        "@maven//:io_servicetalk_servicetalk_http_api",
+        "@maven//:io_servicetalk_servicetalk_http_netty",
+    ],
+)
+
+java_binary(
+    name = "blocking_server",
+    main_class = "io.servicetalk.examples.http.helloworld.blocking.BlockingHelloWorldServer",
+    runtime_deps = [
+        ":BlockingHelloWorldServer",
+        "@maven//:org_slf4j_slf4j_simple",
+    ],
+)
+
+java_library(
+    name = "BlockingHelloWorldUrlClient",
+    srcs = ["BlockingHelloWorldUrlClient.java"],
+    resources = ["//java/resources:log4j.xml"],
+    runtime_deps = [
+        "@maven//:org_slf4j_slf4j_api",
+    ],
+    deps = [
+        "@maven//:io_servicetalk_servicetalk_http_api",
+        "@maven//:io_servicetalk_servicetalk_http_netty",
+    ],
+)
+
+java_binary(
+    name = "url_client",
+    main_class = "io.servicetalk.examples.http.helloworld.blocking.BlockingHelloWorldUrlClient",
+    runtime_deps = [
+        ":BlockingHelloWorldUrlClient",
+        "@maven//:org_slf4j_slf4j_simple",
+    ],
+)

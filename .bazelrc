@@ -1,0 +1,27 @@
+common --enable_bzlmod
+
+# REQUIRED for protobuf toolchain resolutions
+common --incompatible_enable_proto_toolchain_resolution
+
+# Force the Protobuf rules to never compile protobuf by breaking the Protobuf compile.
+# If you see the build fail due to an error, try to fix the configuration.
+common --per_file_copt=external/.*protobuf.*@--PROTOBUF_WAS_NOT_SUPPOSED_TO_BE_BUILT
+common --host_per_file_copt=external/.*protobuf.*@--PROTOBUF_WAS_NOT_SUPPOSED_TO_BE_BUILT
+
+# TODO: Remove this once our minimum version is Bazel 8, ref: https://github.com/bazelbuild/bazel/issues/23127
+build --incompatible_use_plus_in_repo_names
+
+build --java_language_version=21
+build --java_runtime_version=21
+build --tool_java_language_version=21
+build --tool_java_runtime_version=21
+
+test --test_output=all
+###
+# GitHub Actions specific configuration
+###
+build:ci --curses=no --color=yes --show_timestamps
+test:ci --curses=no --color=yes --show_timestamps
+
+# Use a consistent disk and repository cache.
+build:ci --disk_cache=~/.cache/bazel/disk --repository_cache=~/.cache/bazel/repositories

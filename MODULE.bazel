@@ -1,0 +1,135 @@
+# Copyright © 2026 Apple Inc. and the ServiceTalk project authors. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+module(
+    name = "rules_servicetalk",
+    version = "0.0.0",
+)
+
+io_service_talk_version = "0.42.62"
+
+protobuf_rules_version = "31.1"
+
+protobuf_version = "25.8"
+
+bazel_dep(name = "bazel_skylib", version = "1.8.1")
+bazel_dep(name = "rules_java", version = "8.15.2")
+bazel_dep(name = "rules_jvm_external", version = "6.8")
+bazel_dep(name = "toolchains_protoc", version = "0.6.1")
+bazel_dep(name = "protobuf", version = protobuf_rules_version)
+
+#### Servicetalk Maven Deps for running the Plugin ####
+
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(
+    name = "servicetalk_plugin_deps",
+    artifacts = [
+        "io.servicetalk:servicetalk-concurrent:" + io_service_talk_version,
+        "io.servicetalk:servicetalk-concurrent-api:" + io_service_talk_version,
+        "io.servicetalk:servicetalk-encoding-api:" + io_service_talk_version,
+        "io.servicetalk:servicetalk-grpc-api:" + io_service_talk_version,
+        "io.servicetalk:servicetalk-grpc-netty:" + io_service_talk_version,
+        "io.servicetalk:servicetalk-http-netty:" + io_service_talk_version,
+        "io.servicetalk:servicetalk-router-api:" + io_service_talk_version,
+        "com.squareup:javapoet:1.13.0",
+    ],
+    fail_if_repin_required = True,
+    fetch_sources = True,
+    known_contributing_modules = [
+        "protobuf",
+        "rules_servicetalk",
+    ],
+    lock_file = "//servicetalk/private:maven_plugin_install.json",
+    strict_visibility = True,
+)
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "servicetalk-data-protobuf",
+    exclusions = ["com.google.protobuf:protobuf-java"],
+    group = "io.servicetalk",
+    version = io_service_talk_version,
+)
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "servicetalk-grpc-api",
+    exclusions = ["com.google.protobuf:protobuf-java"],
+    group = "io.servicetalk",
+    version = io_service_talk_version,
+)
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "servicetalk-grpc-protoc",
+    exclusions = ["com.google.protobuf:protobuf-java"],
+    group = "io.servicetalk",
+    version = io_service_talk_version,
+)
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "servicetalk-grpc-protobuf",
+    exclusions = ["com.google.protobuf:protobuf-java"],
+    group = "io.servicetalk",
+    version = io_service_talk_version,
+)
+
+# TODO: These are here to force the protobuf java library version to match the Protobuf compiler version
+# TODO: (under toolchains_protoc). When upgrading you can replace these with the correct protobuf version.
+
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "protobuf-java",
+    exclusions = [
+        "com.google.guava:guava",
+    ],
+    force_version = True,
+    group = "com.google.protobuf",
+    version = "3.%s" % protobuf_version,
+)
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "protobuf-kotlin",
+    force_version = True,
+    group = "com.google.protobuf",
+    version = "3.%s" % protobuf_version,
+)
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "protobuf-java-util",
+    exclusions = [
+        "com.google.code.findbugs:jsr305",
+        "com.google.errorprone:error_prone_annotations",
+        "com.google.guava:guava",
+        "com.google.code.gson:gson",
+        "com.google.j2objc:j2objc-annotations",
+    ],
+    force_version = True,
+    group = "com.google.protobuf",
+    version = "3.%s" % protobuf_version,
+)
+use_repo(
+    maven,
+    "servicetalk_plugin_deps",
+)
+
+#### Protoc compiler ####
+# This gets us the pre-compiled protoc compiler version 3.25.8 to build out protobuf files
+
+protoc = use_extension("@toolchains_protoc//protoc:extensions.bzl", "protoc")
+protoc.toolchain(
+    version = "v%s" % protobuf_version,
+)
+use_repo(protoc, "toolchains_protoc_hub")
+
+register_toolchains("@toolchains_protoc_hub//:all")
+
+register_toolchains("//proto:all")

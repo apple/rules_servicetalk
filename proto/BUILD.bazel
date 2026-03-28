@@ -1,0 +1,48 @@
+# Copyright © 2026 Apple Inc. and the ServiceTalk project authors. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load("@protobuf//bazel:proto_library.bzl", _proto_library = "proto_library")
+load("@protobuf//bazel/toolchains:proto_lang_toolchain.bzl", "proto_lang_toolchain")
+
+exports_files([
+    "defs.bzl",
+])
+
+bzl_library(
+    name = "docs",
+    srcs = glob(["*.bzl"]) + [
+        "@bazel_tools//tools:bzl_srcs",
+    ],
+    visibility = [
+        "//:__subpackages__",
+    ],
+    deps = [
+        "//proto/extensions:docs",
+        "//proto/private:docs",
+        "@protobuf//bazel:proto_library_bzl",
+        "@protobuf//bazel/toolchains:proto_lang_toolchain_bzl",
+        "@rules_jvm_external//:implementation",
+    ],
+)
+
+#### Protobuf toolchain for Java compiler ####
+proto_lang_toolchain(
+    name = "protoc_java_toolchain",
+    command_line = "--java_out=%s",
+    progress_message = "Generating Java proto_library %{label}",
+    runtime = "@servicetalk_plugin_deps//:com_google_protobuf_protobuf_java",
+    toolchain_type = "@rules_java//java/proto:toolchain_type",
+    visibility = ["//visibility:public"],
+)

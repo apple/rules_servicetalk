@@ -1,0 +1,32 @@
+common --enable_bzlmod
+
+# REQUIRED for protobuf toolchain resolutions
+common --incompatible_enable_proto_toolchain_resolution
+
+# The contrib_rules_jvm java gazelle plugin relies on GRPC_Java, which in turn requires compiling a version of
+# protobuf library, essentially the full protobuf compiler minus the final link step. By default the C++ version
+# assumed by Bazel is old. So this requests the minimum requires C++ version for protobuf and supporting tools
+common --per_file_copt=external/abseil-cpp.*@-std=c++17
+common --host_per_file_copt=external/abseil-cpp.*@-std=c++17
+common --per_file_copt=external/protobuf.*\.cc$@-std=c++17
+common --host_per_file_copt=external/protobuf.*\.cc$@-std=c++17
+common --per_file_copt=external/contrib_rules_jvm.*\.cpp$@-std=c++17
+common --host_per_file_copt=external/contrib_rules_jvm.*\.cpp$@-std=c++17
+
+# TODO: Remove this once our minimum version is Bazel 8, ref: https://github.com/bazelbuild/bazel/issues/23127
+build --incompatible_use_plus_in_repo_names
+
+build --java_language_version=21
+build --java_runtime_version=21
+build --tool_java_language_version=21
+build --tool_java_runtime_version=21
+
+test --test_output=all
+###
+# GitHub Actions specific configuration
+###
+build:ci --curses=no --color=yes --show_timestamps
+test:ci --curses=no --color=yes --show_timestamps
+
+# Use a consistent disk and repository cache.
+build:ci --disk_cache=~/.cache/bazel/disk --repository_cache=~/.cache/bazel/repositories

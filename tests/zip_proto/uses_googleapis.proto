@@ -1,0 +1,7 @@
+syntax = "proto3";
+
+import "google/api/field_behavior.proto";
+
+message Bar {
+    string bar = 1 [(google.api.field_behavior) = REQUIRED];
+}

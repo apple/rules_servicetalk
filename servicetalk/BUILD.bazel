@@ -1,0 +1,85 @@
+# Copyright © 2026 Apple Inc. and the ServiceTalk project authors. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
+load("@rules_java//java:defs.bzl", "java_binary", "java_library")
+
+# Because the user will be linking artifacts built by their rules into
+# their own applications, we need to make sure we use _their_ version
+# of protobuf and other dependencies.
+load("//servicetalk/private:servicetalk_artifacts.bzl", "artifact")
+load("//servicetalk/private:toolchain.bzl", "service_talk_toolchain")
+
+package(default_visibility = ["//visibility:public"])
+
+exports_files([
+    "defs.bzl",
+])
+
+toolchain_type(
+    name = "st_toolchain_type",
+    visibility = [
+        "//visibility:public",
+    ],
+)
+
+service_talk_toolchain(
+    name = "st-toolchain",
+    plugin = ":service-talk-plugin",
+    runtime = [
+        ":service-talk-plugin-lib",
+        "@servicetalk_plugin_deps//:com_google_protobuf_protobuf_java",
+        "@servicetalk_plugin_deps//:com_google_protobuf_protobuf_java_util",
+    ],
+)
+
+# Now define the plugin to use. We do this in your project so that it's easy
+# to control the version of service talk you're using.
+java_binary(
+    name = "service-talk-plugin",
+    main_class = "io.servicetalk.grpc.protoc.Main",
+    runtime_deps = [
+        ":service-talk-plugin-lib",
+        "@servicetalk_plugin_deps//:com_google_protobuf_protobuf_java",
+    ],
+)
+
+# And the runtime libraries
+
+java_library(
+    name = "service-talk-plugin-lib",
+    exports = [
+        "@servicetalk_plugin_deps//:com_google_api_grpc_proto_google_common_protos",
+        "@servicetalk_plugin_deps//:com_squareup_javapoet",
+        "@servicetalk_plugin_deps//:io_servicetalk_servicetalk_concurrent",
+        "@servicetalk_plugin_deps//:io_servicetalk_servicetalk_concurrent_api",
+        "@servicetalk_plugin_deps//:io_servicetalk_servicetalk_data_protobuf",
+        "@servicetalk_plugin_deps//:io_servicetalk_servicetalk_encoding_api",
+        "@servicetalk_plugin_deps//:io_servicetalk_servicetalk_grpc_api",
+        "@servicetalk_plugin_deps//:io_servicetalk_servicetalk_grpc_protobuf",
+        "@servicetalk_plugin_deps//:io_servicetalk_servicetalk_grpc_protoc",
+        "@servicetalk_plugin_deps//:io_servicetalk_servicetalk_router_api",
+    ],
+)
+
+bzl_library(
+    name = "docs",
+    srcs = glob(["*.bzl"]),
+    visibility = [
+        "//:__subpackages__",
+    ],
+    deps = [
+        "//servicetalk/private:docs",
+    ],
+)

@@ -1,0 +1,77 @@
+# Copyright © 2026 Apple Inc. and the ServiceTalk project authors. All rights reserved.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#   https://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+module(name = "rules_servicetalk_tests_extract_proto")
+
+bazel_dep(name = "rules_servicetalk", version = "0.0.0")
+local_path_override(
+    module_name = "rules_servicetalk",
+    path = "../../",
+)
+
+protobuf_version = "25.8"
+
+io_service_talk_version = "0.42.62"
+
+bazel_dep(name = "bazel_skylib", version = "1.8.1")
+bazel_dep(name = "toolchains_protoc", version = "0.6.1")
+bazel_dep(name = "rules_jvm_external", version = "6.10")
+
+#### Protoc compiler ####
+# This gets us the pre-compiled protoc compiler version 3.25.8 to build out protobuf files
+protoc = use_extension("@toolchains_protoc//protoc:extensions.bzl", "protoc")
+protoc.toolchain(
+    google_protobuf = "com_google_protobuf",
+    version = "v%s" % protobuf_version,
+)
+use_repo(protoc, "com_google_protobuf", "toolchains_protoc_hub")
+
+register_toolchains("@toolchains_protoc_hub//:all")
+
+bazel_dep(name = "protobuf", version = "33.4")
+
+#### Maven Jars ####
+maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
+maven.install(
+    name = "maven",
+    artifacts = [
+        "io.servicetalk:servicetalk-grpc-health:" + io_service_talk_version,
+        "com.google.protobuf:protobuf-java:3." + protobuf_version,
+        "io.grpc:grpc-services:1.78.0",
+    ],
+    fail_if_repin_required = True,
+    fetch_sources = True,
+    known_contributing_modules = [
+        "protobuf",
+        "rules_servicetalk_tests_extract_proto",
+    ],
+    lock_file = ":maven_install.json",
+)
+use_repo(maven, "maven")
+
+#### Proto Jars ####
+
+# TODO: This is a standard extraction of protobuf jars from a third party library.
+# TODO: You can replace this, or remove it, as needed by your project
+extract_proto = use_extension("@rules_servicetalk//proto/extensions:extract_proto.bzl", "extract_proto")
+extract_proto.jars(
+    name = "example_proto_jar",
+    coordinates = "io.servicetalk:servicetalk-grpc-health",
+    maven_install_json = "//:maven_install.json",
+    deps = [
+        "@protobuf//:struct_proto",
+        "@protobuf//:timestamp_proto",
+    ],
+)
+use_repo(extract_proto, "example_proto_jar")
