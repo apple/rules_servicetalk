@@ -15,6 +15,7 @@
 load("@protobuf//bazel/common:proto_info.bzl", "ProtoInfo")
 load("@rules_java//java/common:java_info.bzl", "JavaInfo")
 load("//proto/private:utils.bzl", "is_third_party_proto")
+load("//servicetalk/private/providers:zip_proto_info.bzl", "ZipProtoInfo")
 
 # This is a nasty, nasty hack. There are protobufs that are supplied
 # in two ways: as raw `.proto` files and in pre-compiled form via a
@@ -27,12 +28,6 @@ KNOWN_THIRD_PARTY_PROTO_WORKSPACES = [
     "com_google_protobuf",
     "common_protos",
 ]
-
-ZipProtoInfo = provider(
-    fields = {
-        "zips": "A depset of zip files containing the raw proto files",
-    },
-)
 
 def _zip_protos_aspect_impl(target, ctx):
     proto_info = target[ProtoInfo]

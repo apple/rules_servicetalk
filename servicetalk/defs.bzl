@@ -19,9 +19,14 @@ load(
     _TOOLCHAIN_TYPE = "TOOLCHAIN_TYPE",
     _service_talk_toolchain = "service_talk_toolchain",
 )
+load("//servicetalk/private/providers:service_talk_java_proto_info.bzl", _ServiceTalkJavaProtoInfo = "ServiceTalkJavaProtoInfo")
+load("//servicetalk/private/providers:zip_proto_info.bzl", _ZipProtoInfo = "ZipProtoInfo")
 
 TOOLCHAIN_TYPE = _TOOLCHAIN_TYPE
 service_talk_toolchain = _service_talk_toolchain
 
 service_talk_proto_library = _service_talk_proto_library
 generate_service_talk_proto = _generate_service_talk_proto
+
+ServiceTalkJavaProtoInfo = _ServiceTalkJavaProtoInfo
+ZipProtoInfo = _ZipProtoInfo

@@ -23,6 +23,8 @@ _KNOWN_THIRD_PARTY_PROTO_WORKSPACES = [
     "com_google_protobuf",
     "common_protos",
     "com_github_protocolbuffers_protobuf",
+    "protobuf+",
+    "googleapis+",
 ]
 
 def is_third_party_proto(label):
