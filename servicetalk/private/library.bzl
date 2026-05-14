@@ -85,13 +85,12 @@ def _service_talk_java_aspect_impl_with_custom_toolchain(target, ctx, toolchain_
 
     # We need to use a run_shell since protoc doesn't seem to create the directory
     # for us.
-    inputs = depset([], transitive = [st_toolchain.resolved_plugin[0], proto_info.transitive_sources])
+    inputs = depset([], transitive = [proto_info.transitive_sources])
     ctx.actions.run_shell(
         command = cmd,
         arguments = [],
         outputs = [src_dir],
         inputs = inputs,
-        input_manifests = st_toolchain.resolved_plugin[1],
         tools = [
             _protoc,
             st_toolchain.plugin,
