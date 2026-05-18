@@ -122,7 +122,6 @@ def _service_talk_java_aspect_impl_with_custom_toolchain(target, ctx, toolchain_
         exports = all_deps,
         java_toolchain = ctx.attr._java_toolchain[java_common.JavaToolchainInfo],
     )
-
     return [
         java_info,
         MavenHintInfo(
@@ -131,7 +130,7 @@ def _service_talk_java_aspect_impl_with_custom_toolchain(target, ctx, toolchain_
         ServiceTalkJavaProtoInfo(
             jar = out_jar,
             transitive_jars = depset([out_jar], transitive = [compile_time_deps]),
-            transitive_java_infos = [java_info] + compile_time_infos,
+            transitive_java_infos = [java_common.make_non_strict(java_info)] + compile_time_infos,
         ),
     ]
 
