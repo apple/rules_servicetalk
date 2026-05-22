@@ -16,6 +16,6 @@ ServiceTalkJavaProtoInfo = provider(
     fields = {
         "jar": "Path to the generated jar",
         "transitive_jars": "depset of all jars required so far",
-        "transitive_java_infos": "depset of all JavaInfos, suitable for use with java_common.compile",
+        "transitive_java_infos": "list of all JavaInfos, suitable for use with java_common.compile",
     },
 )
