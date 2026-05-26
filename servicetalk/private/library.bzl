@@ -19,15 +19,8 @@ load("@rules_java//java/common:java_info.bzl", "JavaInfo")
 load("@rules_jvm_external//private/rules:has_maven_deps.bzl", "MavenHintInfo", "MavenInfo")
 load("//proto:defs.bzl", "zip_protos")
 load("//proto/private:utils.bzl", "is_third_party_proto")
+load("//servicetalk/private/providers:service_talk_java_proto_info.bzl", "ServiceTalkJavaProtoInfo")
 load(":toolchain.bzl", "TOOLCHAIN_TYPE")
-
-ServiceTalkJavaProtoInfo = provider(
-    fields = {
-        "jar": "Path to the generated jar",
-        "transitive_jars": "depset of all jars required so far",
-        "transitive_java_infos": "depset of all JavaInfos, suitable for use with java_common.compile",
-    },
-)
 
 # Unfortunately Bazel hard requires that aspects and rules are actually defined
 # as variables in the top-level of a starlark file, so we can't do any sneaky
@@ -55,7 +48,7 @@ def _service_talk_java_aspect_impl_with_custom_toolchain(target, ctx, toolchain_
             ServiceTalkJavaProtoInfo(
                 jar = None,
                 transitive_jars = depset(transitive = [dep[JavaInfo].transitive_runtime_jars for dep in st_toolchain.runtime]),
-                transitive_java_infos = depset([dep[JavaInfo] for dep in st_toolchain.runtime]),
+                transitive_java_infos = [dep[JavaInfo] for dep in st_toolchain.runtime],
             ),
         ]
 
@@ -116,18 +109,18 @@ def _service_talk_java_aspect_impl_with_custom_toolchain(target, ctx, toolchain_
                      [dep[ServiceTalkJavaProtoInfo] for dep in ctx.rule.attr.exports]
 
     compile_time_deps = depset([], transitive = [pi.transitive_jars for pi in all_proto_info])
-    compile_time_infos = depset([], transitive = [pi.transitive_java_infos for pi in all_proto_info])
+    compile_time_infos = [info for pi in all_proto_info for info in pi.transitive_java_infos]
 
     out_jar = ctx.actions.declare_file("%s.jar" % target.label.name)
+    all_deps = [lib[JavaInfo] for lib in st_toolchain.runtime] + compile_time_infos
     java_info = java_common.compile(
         ctx,
         source_jars = [src_jar],
         output = out_jar,
-        deps = [lib[JavaInfo] for lib in st_toolchain.runtime] + compile_time_infos.to_list(),
-        exports = [lib[JavaInfo] for lib in st_toolchain.runtime] + compile_time_infos.to_list(),
+        deps = all_deps,
+        exports = all_deps,
         java_toolchain = ctx.attr._java_toolchain[java_common.JavaToolchainInfo],
     )
-
     return [
         java_info,
         MavenHintInfo(
@@ -136,7 +129,7 @@ def _service_talk_java_aspect_impl_with_custom_toolchain(target, ctx, toolchain_
         ServiceTalkJavaProtoInfo(
             jar = out_jar,
             transitive_jars = depset([out_jar], transitive = [compile_time_deps]),
-            transitive_java_infos = depset([java_info], transitive = [compile_time_infos]),
+            transitive_java_infos = [java_common.make_non_strict(java_info)] + compile_time_infos,
         ),
     ]
 
@@ -146,7 +139,7 @@ def _to_short_path(f, expander):
 
 def _service_talk_proto_library_impl(ctx):
     jars = depset([], transitive = [dep[ServiceTalkJavaProtoInfo].transitive_jars for dep in ctx.attr.deps])
-    infos = depset([], transitive = [dep[ServiceTalkJavaProtoInfo].transitive_java_infos for dep in ctx.attr.deps])
+    infos = [info for dep in ctx.attr.deps for info in dep[ServiceTalkJavaProtoInfo].transitive_java_infos]
 
     # output an empty zip, since an output is expected
     out_jar = ctx.actions.declare_file("lib%s.jar" % ctx.attr.name)
@@ -165,7 +158,7 @@ def _service_talk_proto_library_impl(ctx):
         JavaInfo(
             output_jar = out_jar,
             compile_jar = out_jar,
-            exports = infos.to_list(),
+            exports = infos,
         ),
         DefaultInfo(
             files = jars,

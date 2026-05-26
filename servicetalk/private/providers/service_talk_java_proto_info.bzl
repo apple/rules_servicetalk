@@ -11,12 +11,11 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-load("@bazel_skylib//rules:build_test.bzl", "build_test")
 
-build_test(
-    name = "build_test",
-    targets = [
-        "//src/proto:yo",
-        "//src/java/com/apple/bazel/servicetalk:NewMain",
-    ],
+ServiceTalkJavaProtoInfo = provider(
+    fields = {
+        "jar": "Path to the generated jar",
+        "transitive_jars": "depset of all jars required so far",
+        "transitive_java_infos": "list of all JavaInfos, suitable for use with java_common.compile",
+    },
 )

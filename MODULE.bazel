@@ -35,14 +35,8 @@ maven = use_extension("@rules_jvm_external//:extensions.bzl", "maven")
 maven.install(
     name = "servicetalk_plugin_deps",
     artifacts = [
-        "io.servicetalk:servicetalk-concurrent:" + io_service_talk_version,
-        "io.servicetalk:servicetalk-concurrent-api:" + io_service_talk_version,
-        "io.servicetalk:servicetalk-encoding-api:" + io_service_talk_version,
-        "io.servicetalk:servicetalk-grpc-api:" + io_service_talk_version,
         "io.servicetalk:servicetalk-grpc-netty:" + io_service_talk_version,
         "io.servicetalk:servicetalk-http-netty:" + io_service_talk_version,
-        "io.servicetalk:servicetalk-router-api:" + io_service_talk_version,
-        "com.squareup:javapoet:1.13.0",
     ],
     fail_if_repin_required = True,
     fetch_sources = True,
@@ -53,13 +47,55 @@ maven.install(
     lock_file = "//servicetalk/private:maven_plugin_install.json",
     strict_visibility = True,
 )
+
+[
+    maven.artifact(
+        name = "servicetalk_plugin_deps",
+        artifact = artifact,
+        group = "io.servicetalk",
+        neverlink = True,
+        version = io_service_talk_version,
+    )
+    for artifact in [
+        "servicetalk-annotations",
+        "servicetalk-buffer-api",
+        "servicetalk-buffer-netty",
+        "servicetalk-client-api",
+        "servicetalk-concurrent",
+        "servicetalk-concurrent-api",
+        "servicetalk-concurrent-api-internal",
+        "servicetalk-concurrent-internal",
+        "servicetalk-context-api",
+        "servicetalk-encoding-api",
+        "servicetalk-encoding-api-internal",
+        "servicetalk-grpc-api",
+        "servicetalk-grpc-internal",
+        "servicetalk-http-api",
+        "servicetalk-http-utils",
+        "servicetalk-logging-api",
+        "servicetalk-logging-slf4j-internal",
+        "servicetalk-oio-api",
+        "servicetalk-oio-api-internal",
+        "servicetalk-router-api",
+        "servicetalk-router-utils-internal",
+        "servicetalk-serializer-api",
+        "servicetalk-serializer-utils",
+        "servicetalk-transport-api",
+        "servicetalk-serialization-api",
+        "servicetalk-utils-internal",
+    ]
+]
+
 maven.artifact(
     name = "servicetalk_plugin_deps",
     artifact = "servicetalk-data-protobuf",
     exclusions = ["com.google.protobuf:protobuf-java"],
     group = "io.servicetalk",
+    neverlink = True,
     version = io_service_talk_version,
 )
+
+# Don't mark this as "neverlink = True" or the compiler doesn't work anymore
 maven.artifact(
     name = "servicetalk_plugin_deps",
     artifact = "servicetalk-grpc-api",
@@ -81,7 +117,26 @@ maven.artifact(
     group = "io.servicetalk",
     version = io_service_talk_version,
 )
-
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "proto-google-common-protos",
+    group = "com.google.api.grpc",
+    neverlink = True,
+    version = "2.51.0",
+)
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "javapoet",
+    group = "com.squareup",
+    version = "1.13.0",
+)
+maven.artifact(
+    name = "servicetalk_plugin_deps",
+    artifact = "slf4j-api",
+    group = "org.slf4j",
+    neverlink = True,
+    version = "1.7.36",
+)
 # TODO: These are here to force the protobuf java library version to match the Protobuf compiler version
 # TODO: (under toolchains_protoc). When upgrading you can replace these with the correct protobuf version.
 
