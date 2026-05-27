@@ -60,8 +60,6 @@ def _service_talk_java_aspect_impl_with_custom_toolchain(target, ctx, toolchain_
     # Get the plugin executable - use files_to_run to get the executable with runfiles support
     plugin_executable = st_toolchain.plugin_label[DefaultInfo].files_to_run.executable
 
-    print("plugin_executable: " + str(plugin_executable))
-
     cmd = "mkdir -p %s && " % src_dir.path
     cmd = cmd + "%s " % protoc_executable
 
