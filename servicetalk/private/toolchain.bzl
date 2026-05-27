@@ -20,6 +20,7 @@ TOOLCHAIN_TYPE = Label("//servicetalk:st_toolchain_type")
 def _st_toolchain_impl(ctx):
     return platform_common.ToolchainInfo(
         plugin = ctx.executable.plugin,
+        resolved_plugin = ctx.attr.plugin,
         runtime = ctx.attr.runtime,
     )
 

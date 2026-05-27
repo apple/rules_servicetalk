@@ -57,10 +57,13 @@ def _service_talk_java_aspect_impl_with_custom_toolchain(target, ctx, toolchain_
     src_dir = ctx.actions.declare_directory("%s-proto-sources" % target.label.name)
     protoc_args = ctx.actions.args()
 
+    # Get the plugin executable - use files_to_run to get the executable with runfiles support
+    plugin_executable = st_toolchain.resolved_plugin[DefaultInfo].files_to_run.executable
+
     cmd = "mkdir -p %s && " % src_dir.path
     cmd = cmd + "%s " % protoc_executable
 
-    cmd = cmd + "--plugin=protoc-gen-st_grpc=%s " % st_toolchain.plugin.path
+    cmd = cmd + "--plugin=protoc-gen-st_grpc=%s " % plugin_executable.path
 
     cmd = cmd + "".join(["--proto_path=%s " % p for p in proto_info.transitive_proto_path.to_list()])
 
@@ -86,10 +89,11 @@ def _service_talk_java_aspect_impl_with_custom_toolchain(target, ctx, toolchain_
         inputs = inputs,
         tools = [
             _protoc,
-            st_toolchain.plugin,
+            st_toolchain.resolved_plugin[DefaultInfo].files_to_run,
         ],
         mnemonic = "ServiceTalkProtoc",
         progress_message = "Generating ServiceTalk source for %s" % ", ".join([src.path for src in proto_info.direct_sources]),
+        toolchain = toolchain_type,
     )
 
     # Gather all the sources together
