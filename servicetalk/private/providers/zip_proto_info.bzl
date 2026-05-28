@@ -11,12 +11,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-load("@bazel_skylib//rules:build_test.bzl", "build_test")
 
-build_test(
-    name = "build_test",
-    targets = [
-        "//src/proto:yo",
-        "//src/java/com/apple/bazel/servicetalk:NewMain",
-    ],
+ZipProtoInfo = provider(
+    fields = {
+        "zips": "A depset of zip files containing the raw proto files",
+    },
 )

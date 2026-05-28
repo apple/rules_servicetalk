@@ -15,11 +15,11 @@
 load("@rules_java//java/common:java_info.bzl", "JavaInfo")
 load("@rules_jvm_external//private/rules:has_maven_deps.bzl", "MavenInfo", "has_maven_deps")
 
-TOOLCHAIN_TYPE = "//servicetalk:st_toolchain_type"
+TOOLCHAIN_TYPE = Label("//servicetalk:st_toolchain_type")
 
 def _st_toolchain_impl(ctx):
     return platform_common.ToolchainInfo(
-        plugin = ctx.executable.plugin,
+        plugin_label = ctx.attr.plugin,
         runtime = ctx.attr.runtime,
     )
 

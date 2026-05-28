@@ -12,7 +12,6 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-load("@bazel_skylib//rules:build_test.bzl", "build_test")
 load("@rules_java//java:defs.bzl", "java_binary", "java_library")
 
 java_library(
@@ -26,15 +25,9 @@ java_library(
 
 java_binary(
     name = "NewMain",
+    visibility = ["//visibility:public"],
     runtime_deps = [
         ":NewMainLib",
-    ],
-)
-
-build_test(
-    name = "test",
-    targets = [
-        ":NewMain",
     ],
 )
 

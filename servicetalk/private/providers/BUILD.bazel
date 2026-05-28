@@ -11,12 +11,13 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-load("@bazel_skylib//rules:build_test.bzl", "build_test")
+load("@bazel_skylib//:bzl_library.bzl", "bzl_library")
 
-build_test(
-    name = "build_test",
-    targets = [
-        "//src/proto:yo",
-        "//src/java/com/apple/bazel/servicetalk:NewMain",
+bzl_library(
+    name = "providers",
+    srcs = glob(["*.bzl"]),
+    visibility = [
+        "//proto/private:__pkg__",
+        "//servicetalk/private:__pkg__",
     ],
 )
