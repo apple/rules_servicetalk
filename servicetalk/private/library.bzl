@@ -197,8 +197,10 @@ def _make_aspect(toolchain_type):
             "exports",
             "runtime_deps",
         ],
-        required_aspect_providers = [
+        required_providers = [
             ProtoInfo,
+        ],
+        required_aspect_providers = [
             ServiceTalkJavaProtoInfo,
         ],
         provides = [
