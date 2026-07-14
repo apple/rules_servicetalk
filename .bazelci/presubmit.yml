@@ -1,0 +1,20 @@
+---
+matrix:
+  bazel_version: ["8.7.0", "9.1.0"]
+  working_dir: ["tests/extract_proto", "tests/gazelle", "tests/grpc", "tests/helloworld", "tests/proto_direct_access",
+                  "tests/protobuf", "tests/servicetalk", "tests/zip_proto"]
+tasks:
+  buildifier: latest
+  ubuntu2404:
+    build_flags:
+      - "--config=ci"
+    build_targets:
+      - "//..."
+  prb_tests_ubuntu:
+    platform: ubuntu2404
+    bazel: ${{ bazel_version }}
+    working_directory: ${{ working_dir }}
+    test_flags:
+      - "--config=ci"
+    test_targets:
+      - "//..."
