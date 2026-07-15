@@ -1,0 +1,9 @@
+load("@bazel_skylib//rules:build_test.bzl", "build_test")
+
+build_test(
+    name = "build_test",
+    targets = [
+        "//java/io/servicetalk/examples/http/helloworld/blocking:blocking_client",
+        "//java/io/servicetalk/examples/http/helloworld/blocking:blocking_server",
+    ],
+)

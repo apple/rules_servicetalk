@@ -27,6 +27,7 @@ java_library(
 java_binary(
     name = "blocking_client",
     main_class = "io.servicetalk.examples.grpc.helloworld.blocking.BlockingHelloWorldClient",
+    visibility = ["//visibility:public"],
     runtime_deps = [
         ":BlockingHelloWorldClient",
         "@maven//:org_slf4j_slf4j_simple",
@@ -49,6 +50,7 @@ java_library(
 java_binary(
     name = "blocking_server",
     main_class = "io.servicetalk.examples.grpc.helloworld.blocking.BlockingHelloWorldServer",
+    visibility = ["//visibility:public"],
     runtime_deps = [
         ":BlockingHelloWorldServer",
         "@maven//:org_slf4j_slf4j_simple",
