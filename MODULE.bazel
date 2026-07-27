@@ -17,7 +17,7 @@ module(
     version = "0.0.0",
 )
 
-io_service_talk_version = "0.42.64"
+io_service_talk_version = "0.42.65"
 
 protobuf_rules_version = "31.1"
 
