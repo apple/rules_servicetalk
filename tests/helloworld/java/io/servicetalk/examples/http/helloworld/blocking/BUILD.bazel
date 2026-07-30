@@ -13,6 +13,7 @@ java_library(
 java_binary(
     name = "blocking_client",
     main_class = "io.servicetalk.examples.http.helloworld.blocking.BlockingHelloWorldClient",
+    visibility = ["//visibility:public"],
     runtime_deps = [":BlockingHelloWorldClient"],
 )
 
@@ -32,6 +33,7 @@ java_library(
 java_binary(
     name = "blocking_server",
     main_class = "io.servicetalk.examples.http.helloworld.blocking.BlockingHelloWorldServer",
+    visibility = ["//visibility:public"],
     runtime_deps = [
         ":BlockingHelloWorldServer",
         "@maven//:org_slf4j_slf4j_simple",
