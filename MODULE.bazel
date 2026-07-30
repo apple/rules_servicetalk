@@ -14,7 +14,7 @@
 
 module(
     name = "rules_servicetalk",
-    version = "0.0.0",
+    version = "1.0",
 )
 
 io_service_talk_version = "0.42.64"
@@ -135,7 +135,7 @@ maven.artifact(
     artifact = "slf4j-api",
     group = "org.slf4j",
     neverlink = True,
-    version = "1.7.36",
+    version = "2.0.17",
 )
 # TODO: These are here to force the protobuf java library version to match the Protobuf compiler version
 # TODO: (under toolchains_protoc). When upgrading you can replace these with the correct protobuf version.
