@@ -3,8 +3,10 @@ matrix:
   bazel_version: ["8.7.0", "9.1.0"]
   working_dir: ["tests/extract_proto", "tests/gazelle", "tests/grpc", "tests/helloworld", "tests/proto_direct_access",
                   "tests/protobuf", "tests/servicetalk", "tests/zip_proto"]
+
+buildifier: latest
+
 tasks:
-  buildifier: latest
   ubuntu2404:
     build_flags:
       - "--config=ci"
