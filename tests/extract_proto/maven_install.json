@@ -8,7 +8,7 @@
     "com.google.j2objc:j2objc-annotations": 2003271689,
     "com.google.protobuf:protobuf-java": 49271525,
     "io.grpc:grpc-services": 1168522433,
-    "io.servicetalk:servicetalk-grpc-health": 650885438,
+    "io.servicetalk:servicetalk-grpc-health": -476510655,
     "repositories": -1949687017
   },
   "__RESOLVED_ARTIFACTS_HASH": {
@@ -49,70 +49,70 @@
     "io.grpc:grpc-stub:jar:sources": 282106883,
     "io.grpc:grpc-util": -1398884231,
     "io.grpc:grpc-util:jar:sources": -638543258,
-    "io.netty:netty-buffer": 1883825690,
-    "io.netty:netty-buffer:jar:sources": -1427736020,
-    "io.netty:netty-common": -1574327641,
-    "io.netty:netty-common:jar:sources": 1276457390,
+    "io.netty:netty-buffer": -1825962921,
+    "io.netty:netty-buffer:jar:sources": -797516580,
+    "io.netty:netty-common": -1256719072,
+    "io.netty:netty-common:jar:sources": 977985684,
     "io.perfmark:perfmark-api": -1795841558,
     "io.perfmark:perfmark-api:jar:sources": -1882329067,
-    "io.servicetalk:servicetalk-annotations": -1440377319,
-    "io.servicetalk:servicetalk-annotations:jar:sources": 1361329090,
-    "io.servicetalk:servicetalk-buffer-api": 1495506795,
-    "io.servicetalk:servicetalk-buffer-api:jar:sources": 768143246,
-    "io.servicetalk:servicetalk-buffer-netty": 1201242183,
-    "io.servicetalk:servicetalk-buffer-netty:jar:sources": 605667089,
-    "io.servicetalk:servicetalk-client-api": 929954961,
-    "io.servicetalk:servicetalk-client-api:jar:sources": 1896579675,
-    "io.servicetalk:servicetalk-concurrent": -1195611371,
-    "io.servicetalk:servicetalk-concurrent-api": 1852964460,
-    "io.servicetalk:servicetalk-concurrent-api-internal": -268939894,
-    "io.servicetalk:servicetalk-concurrent-api-internal:jar:sources": -286546182,
-    "io.servicetalk:servicetalk-concurrent-api:jar:sources": -548534559,
-    "io.servicetalk:servicetalk-concurrent-internal": 1431019467,
-    "io.servicetalk:servicetalk-concurrent-internal:jar:sources": 734411966,
-    "io.servicetalk:servicetalk-concurrent:jar:sources": 95925173,
-    "io.servicetalk:servicetalk-context-api": -1153615631,
-    "io.servicetalk:servicetalk-context-api:jar:sources": -16597179,
-    "io.servicetalk:servicetalk-data-protobuf": -909686862,
-    "io.servicetalk:servicetalk-data-protobuf:jar:sources": 725646445,
-    "io.servicetalk:servicetalk-encoding-api": 1940548347,
-    "io.servicetalk:servicetalk-encoding-api-internal": 904647851,
-    "io.servicetalk:servicetalk-encoding-api-internal:jar:sources": 993968156,
-    "io.servicetalk:servicetalk-encoding-api:jar:sources": -608651033,
-    "io.servicetalk:servicetalk-grpc-api": 1113656412,
-    "io.servicetalk:servicetalk-grpc-api:jar:sources": -879670367,
-    "io.servicetalk:servicetalk-grpc-health": -1255103456,
-    "io.servicetalk:servicetalk-grpc-health:jar:sources": -1117160147,
-    "io.servicetalk:servicetalk-grpc-internal": 1023653790,
-    "io.servicetalk:servicetalk-grpc-internal:jar:sources": -15674666,
-    "io.servicetalk:servicetalk-grpc-protobuf": 1315746839,
-    "io.servicetalk:servicetalk-grpc-protobuf:jar:sources": -1860725874,
-    "io.servicetalk:servicetalk-http-api": 321422580,
-    "io.servicetalk:servicetalk-http-api:jar:sources": -1280242063,
-    "io.servicetalk:servicetalk-http-utils": 1907092488,
-    "io.servicetalk:servicetalk-http-utils:jar:sources": -215259313,
-    "io.servicetalk:servicetalk-logging-api": -1583492587,
-    "io.servicetalk:servicetalk-logging-api:jar:sources": -1565389614,
-    "io.servicetalk:servicetalk-logging-slf4j-internal": -425818540,
-    "io.servicetalk:servicetalk-logging-slf4j-internal:jar:sources": -293491750,
-    "io.servicetalk:servicetalk-oio-api": -1224501293,
-    "io.servicetalk:servicetalk-oio-api-internal": -1584294939,
-    "io.servicetalk:servicetalk-oio-api-internal:jar:sources": -475931524,
-    "io.servicetalk:servicetalk-oio-api:jar:sources": 1028482484,
-    "io.servicetalk:servicetalk-router-api": 274313319,
-    "io.servicetalk:servicetalk-router-api:jar:sources": 1169489894,
-    "io.servicetalk:servicetalk-router-utils-internal": 1473640878,
-    "io.servicetalk:servicetalk-router-utils-internal:jar:sources": 696312101,
-    "io.servicetalk:servicetalk-serialization-api": 187973410,
-    "io.servicetalk:servicetalk-serialization-api:jar:sources": 436445442,
-    "io.servicetalk:servicetalk-serializer-api": -247396764,
-    "io.servicetalk:servicetalk-serializer-api:jar:sources": -1847057641,
-    "io.servicetalk:servicetalk-serializer-utils": -903911293,
-    "io.servicetalk:servicetalk-serializer-utils:jar:sources": -308560510,
-    "io.servicetalk:servicetalk-transport-api": -1547978656,
-    "io.servicetalk:servicetalk-transport-api:jar:sources": -384781057,
-    "io.servicetalk:servicetalk-utils-internal": 1043215427,
-    "io.servicetalk:servicetalk-utils-internal:jar:sources": -1372983536,
+    "io.servicetalk:servicetalk-annotations": 1617498550,
+    "io.servicetalk:servicetalk-annotations:jar:sources": -260851523,
+    "io.servicetalk:servicetalk-buffer-api": -1901659417,
+    "io.servicetalk:servicetalk-buffer-api:jar:sources": 184433996,
+    "io.servicetalk:servicetalk-buffer-netty": 1298054336,
+    "io.servicetalk:servicetalk-buffer-netty:jar:sources": -267963765,
+    "io.servicetalk:servicetalk-client-api": -1088039337,
+    "io.servicetalk:servicetalk-client-api:jar:sources": -310229967,
+    "io.servicetalk:servicetalk-concurrent": 1434220439,
+    "io.servicetalk:servicetalk-concurrent-api": 620985751,
+    "io.servicetalk:servicetalk-concurrent-api-internal": -964058881,
+    "io.servicetalk:servicetalk-concurrent-api-internal:jar:sources": 345626886,
+    "io.servicetalk:servicetalk-concurrent-api:jar:sources": -1319705676,
+    "io.servicetalk:servicetalk-concurrent-internal": -1451949058,
+    "io.servicetalk:servicetalk-concurrent-internal:jar:sources": 907316077,
+    "io.servicetalk:servicetalk-concurrent:jar:sources": 823907792,
+    "io.servicetalk:servicetalk-context-api": 1393034775,
+    "io.servicetalk:servicetalk-context-api:jar:sources": 1109101988,
+    "io.servicetalk:servicetalk-data-protobuf": -815667817,
+    "io.servicetalk:servicetalk-data-protobuf:jar:sources": -1028546453,
+    "io.servicetalk:servicetalk-encoding-api": -2132906034,
+    "io.servicetalk:servicetalk-encoding-api-internal": 1061153937,
+    "io.servicetalk:servicetalk-encoding-api-internal:jar:sources": -1788676905,
+    "io.servicetalk:servicetalk-encoding-api:jar:sources": -1606052902,
+    "io.servicetalk:servicetalk-grpc-api": -2045984512,
+    "io.servicetalk:servicetalk-grpc-api:jar:sources": 676705026,
+    "io.servicetalk:servicetalk-grpc-health": -686727398,
+    "io.servicetalk:servicetalk-grpc-health:jar:sources": -823344931,
+    "io.servicetalk:servicetalk-grpc-internal": -1625559539,
+    "io.servicetalk:servicetalk-grpc-internal:jar:sources": -226018818,
+    "io.servicetalk:servicetalk-grpc-protobuf": 2138729682,
+    "io.servicetalk:servicetalk-grpc-protobuf:jar:sources": 223259828,
+    "io.servicetalk:servicetalk-http-api": 393803434,
+    "io.servicetalk:servicetalk-http-api:jar:sources": 168690154,
+    "io.servicetalk:servicetalk-http-utils": -1041009274,
+    "io.servicetalk:servicetalk-http-utils:jar:sources": -338173473,
+    "io.servicetalk:servicetalk-logging-api": -1203387073,
+    "io.servicetalk:servicetalk-logging-api:jar:sources": 234737021,
+    "io.servicetalk:servicetalk-logging-slf4j-internal": -962061886,
+    "io.servicetalk:servicetalk-logging-slf4j-internal:jar:sources": -1450925828,
+    "io.servicetalk:servicetalk-oio-api": -306546223,
+    "io.servicetalk:servicetalk-oio-api-internal": -1876296626,
+    "io.servicetalk:servicetalk-oio-api-internal:jar:sources": 767205562,
+    "io.servicetalk:servicetalk-oio-api:jar:sources": 1118337964,
+    "io.servicetalk:servicetalk-router-api": 1821967019,
+    "io.servicetalk:servicetalk-router-api:jar:sources": 617958695,
+    "io.servicetalk:servicetalk-router-utils-internal": -177447730,
+    "io.servicetalk:servicetalk-router-utils-internal:jar:sources": -1064895745,
+    "io.servicetalk:servicetalk-serialization-api": 826123904,
+    "io.servicetalk:servicetalk-serialization-api:jar:sources": 1557955907,
+    "io.servicetalk:servicetalk-serializer-api": 901542401,
+    "io.servicetalk:servicetalk-serializer-api:jar:sources": 2115103129,
+    "io.servicetalk:servicetalk-serializer-utils": 384231419,
+    "io.servicetalk:servicetalk-serializer-utils:jar:sources": -402175450,
+    "io.servicetalk:servicetalk-transport-api": 1222159085,
+    "io.servicetalk:servicetalk-transport-api:jar:sources": 2104298711,
+    "io.servicetalk:servicetalk-utils-internal": 19681938,
+    "io.servicetalk:servicetalk-utils-internal:jar:sources": 14963934,
     "org.codehaus.mojo:animal-sniffer-annotations": -1201443841,
     "org.codehaus.mojo:animal-sniffer-annotations:jar:sources": -587987186,
     "org.jctools:jctools-core": 473448173,
@@ -263,17 +263,17 @@
     },
     "io.netty:netty-buffer": {
       "shasums": {
-        "jar": "00a522b67ea35cb7b4dd9cf27f85c6c58f5e306785aa045302e5f6b2d4944a87",
-        "sources": "c30cbe8f4c131d6a99ddb84557a7b781923a2d3d980e11c8a7ca2934a39b88d0"
+        "jar": "c88f13fc41156fde5df918c7b240038dfbe97ac57576163f208630391789b5d5",
+        "sources": "a46807cdd05a003224dfc4c40c1295361b373ad6f5ac86a57c53736073fd5765"
       },
-      "version": "4.1.130.Final"
+      "version": "4.1.136.Final"
     },
     "io.netty:netty-common": {
       "shasums": {
-        "jar": "53921f28dd5a352b1bed0e1cbcc54d013dc60ffebeae9b2b1e53eabef317e581",
-        "sources": "9c986998ea0ed5416f15f93fa097d39c83e84ee7d64c954fae332b407a04f4ce"
+        "jar": "e2f73be7ec359b46583ad875521137000eff520bafd320e730846ec9974f3be6",
+        "sources": "fc800f7fce5d6bda22c6332ea40820575d821d32abb7c27e225c4227778a1392"
       },
-      "version": "4.1.130.Final"
+      "version": "4.1.136.Final"
     },
     "io.perfmark:perfmark-api": {
       "shasums": {
@@ -284,206 +284,206 @@
     },
     "io.servicetalk:servicetalk-annotations": {
       "shasums": {
-        "jar": "3e6bf7d534428cacd1bcf0b0789b5e67364934abc4908000cc91f0c116df76d7",
-        "sources": "496fb2d8d5cc2e53b1539687669c02bdc3ba6a735b2911640dd45bc800058077"
+        "jar": "333f6a1eb76109c54cbeea57e1268583e86a630b6d7e6f58588659622cbc0040",
+        "sources": "72458d071f594702e4becc4df5f246b9ad0ec5e3edf6de41babe5dc081636351"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-buffer-api": {
       "shasums": {
-        "jar": "a87016859e66826b4f77449d8b0617eee9bc73e46b8b91c87cbaca5bf095f319",
-        "sources": "d17937989441a88e34d5fcec1e6f9fbe66537224464ce32dbe8f8773cba2a751"
+        "jar": "c176475c857553ae6505c2f8a4afa72605146f84396c91bd7ead2f86df18da35",
+        "sources": "29a9bf8c42f4a311412f05fecc64a2138f761b216aab1ae0153b5957fc9713a9"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-buffer-netty": {
       "shasums": {
-        "jar": "738bbe23693b0c6847ce281e06832afd5bc779488effa790493a066d4c19c8ea",
-        "sources": "9945acd28d47fb01aedff215008ff21f16dde42209041c30bf6a3e11be29d751"
+        "jar": "5d171c9fc1f7ced81f5bdbb3d2d9d11a9628d6c61246b0a5df2df2cfcbdb5a1a",
+        "sources": "2d0779156c3fa7964cbaf8955a993a42691baef40e385906dd97054d66966e0d"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-client-api": {
       "shasums": {
-        "jar": "b2102b2601e8301fc941aca4c167a92b0db7f3442d9ca78d948abe1c08f7ea0e",
-        "sources": "cfeb88068b750e91565ea7a50906940e5e37f0bebd7c8eea93484a24a78f290a"
+        "jar": "a4a06f39b2044c54657197c2aa9fdb782c48700cf88823c32bf0afe04517cb38",
+        "sources": "f06f6b5aceaf797ce73789aeecb905b07564f6f74d53feda4ddb018a3fbb972a"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-concurrent": {
       "shasums": {
-        "jar": "012f37913d77f80b2455fe44559ba648c833b1d7b2475353e865986d2c1ed5da",
-        "sources": "feb915b8770a3a8d41b5dd145ef8b4fa53d367e4e4ad08d93236531884b0c4af"
+        "jar": "41f2ff0f5a7a50422442215d1c923e9775923d4a1da8d4c0ce43c9df12d61f60",
+        "sources": "0898a8f5c71c39ec15a3d9bd4adfc8decebbf6e45fa6fe1a95770a417343ec17"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-concurrent-api": {
       "shasums": {
-        "jar": "36f578379048557b0c71d5490df4191d88ac7fcbc1a8081fab3f8d4ceeb9360b",
-        "sources": "7155d6f4cc798cdc3f7dc8460dad1e6f04555f6b0f95165d43f585afba94890b"
+        "jar": "edc1468faeb64072d0b550930669afef3d784b70289f47148f50a35acf3a2977",
+        "sources": "ca38130eb180e94cf58e900e45cca0f05d5311f8207ef0af729a770c8ff26244"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-concurrent-api-internal": {
       "shasums": {
-        "jar": "e8e8cdd4ee87cf34b803d717dea24c88bf3f16e660f80161c56196a7f45df200",
-        "sources": "135c158fc49c66941f1acc9c434452c8f8b713969f93ffb410bb4175c5b5eefe"
+        "jar": "f8716a043b8a3baf6b9d6ba29ef9739a096c7446207960f0ffdc820a427d639a",
+        "sources": "7debaffb243f80761c717e87f6115f93c582aac5b001eb0722a406bef5a43799"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-concurrent-internal": {
       "shasums": {
-        "jar": "9f7731aba1e7c484a82eecf62becf6f7ddd780a6d2f60dc0bd1bb5be82e4130f",
-        "sources": "9dd40f9c4cfc7cd7ef0a7234987b4f2fd02cbfaca5f4c3dcb2155647ee683fb6"
+        "jar": "8a4f3139c5ac77de1646ec02fccb23503323b0cdab3c41669010a9939050f78d",
+        "sources": "e2938b31776e09415a20d834ba69cb913c1f97b37770cfc073b89d048fa14f72"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-context-api": {
       "shasums": {
-        "jar": "067d44ac869694814c7b9b71e0db8a2a019bbcbb807d7d7e5356eae1e3bd4665",
-        "sources": "b1d70305afaf27e8d671bf6f05e77491d3b3e58cec68cc7216741ecc3596dadd"
+        "jar": "cfa28c4f64ef8b74e59a76869fd43b057784b7e7a3be61a5681f696874dc243c",
+        "sources": "d5c6ee827ad24ec84cbd2b92ea94e3e23305838163dfe72dd74e35581566889d"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-data-protobuf": {
       "shasums": {
-        "jar": "980c2ec218dbe34699ea49b083eba11d3718b6d6d93b57213125178b6795dc84",
-        "sources": "415b489a7b5bd5b58a8c5b335e7685c16e166fe75650ac55dcd4360f8ef27b94"
+        "jar": "820e46113494b75dc128ea20a158bc92076e23f1c2dd6db8fa477a0baa157884",
+        "sources": "a053c73f635ac5878b7d130890af1dc6723139af46ecdf3e5f5ceb8d675cfebf"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-encoding-api": {
       "shasums": {
-        "jar": "aef6d43d5843ecd18804e9813a4547ad6fb27f1008ffe27c368d5a6d7e9da6ce",
-        "sources": "9795f7423ec2e731e3f065679d1a906f8be1576bf56958db414b64b8b2cd9c30"
+        "jar": "746b6a4f9a04b5535f709a5e0eb0cfedc8bbba43b563bdc22b7010c709cfb7fd",
+        "sources": "e8a256a5ad34dbfd66faa3b2cafe25655d3d8ba1c6a4b79f8197ab48af4c1969"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-encoding-api-internal": {
       "shasums": {
-        "jar": "75ee95b7d896ba13d9aff5adc83a2cdf8894551904f1ed8ee7a4140168648d70",
-        "sources": "55ff55ef97ef9dedb87d6967e7b55d9d1ad998d9a2665c361655d5c12bd4afcf"
+        "jar": "307d7ad92a66de8bfbe91676572b1f81f0b8f68f032b719186c1f2027b518b12",
+        "sources": "0392a0f8f38cc84562f075b4f12c702642f5d457c390b7f62ed65c7ea52a47be"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-grpc-api": {
       "shasums": {
-        "jar": "da0a0da6f18d96922cf674f5deda6e323c985d074de22ede52b6d97cdf256f16",
-        "sources": "c61e1f637599ecd22b95273e29aa88b40073c2c9a7c268c1043faa1b042b832b"
+        "jar": "4dbf379e9e7dc5a069673330f412be2d02377b46f4d86abbcd30da0fc45c76a3",
+        "sources": "aeb7a97ad1ace8e62a97ef3dd929cc7e19bbe3a6cda6a09125322e8faedc87b8"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-grpc-health": {
       "shasums": {
-        "jar": "3f0ef80a946d590462d58bb27e89bdea47ccaa3704cb80fd7ffbee8882523ca7",
-        "sources": "c6a72991b4055ab20e35403684c16b9594ac968c92c6438a25996fc690b5ba96"
+        "jar": "3f192343e3e80141873e84c73557757c10ec9009398d839419bc85ec46ac46c4",
+        "sources": "d3c0f00c74d98fca9c6072cc1582b4a0b6df8b6b4fede830cf7a2e7a83c9d27a"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-grpc-internal": {
       "shasums": {
-        "jar": "18b5f450a0c8b19d49bbdb6d4f0e3c75c678c6c724305b88d0c15191ad8a4329",
-        "sources": "57fb3006ec46db4195edf1555e1846680f65d647c5f0abcef26f106b7cbc381c"
+        "jar": "ebabc8716d0ef0277b249793a41ff54e43408615bd4fadbafa6a498ea0d72c28",
+        "sources": "9802f7dd6970fa2e2253d222b0dcbc2e18473b37ec7d11d4ba763b26b3a231bf"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-grpc-protobuf": {
       "shasums": {
-        "jar": "a25465d667eac3c163fd9cfca9a43acf25df8fd82b7215ae3d73881793eec665",
-        "sources": "9dd4be53271fbf0e16ed45dd0ab896d87a5afa0b9d54ec36f8fc6a45e63c47b2"
+        "jar": "a82b4d200d2eff21076cf656d6ccc2862dc2a85c41865022c40561f258e190c4",
+        "sources": "b7ed3b90cd8fc90d244296b5c4a6c62871676709147848f8af3b13ba22c91694"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-http-api": {
       "shasums": {
-        "jar": "8bc68ef94a5f52c634d6a20490a2f952850aac2e46381e52d86d8c15927f1729",
-        "sources": "74059f5298e8430cb7481d6704f69eb0b965c9a7869c25087862d48301a520f7"
+        "jar": "01e096786f68670e254689eaab3be15886800256fd3f2c7cf5f4c72b95a25836",
+        "sources": "1ee8b6daff63441497d4d1c46c00db8105f921aa2a83da77e331ad66737081dc"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-http-utils": {
       "shasums": {
-        "jar": "77b8a504e02113823e47fefc7d25af3641a2c04e73e4c56d5ce9ef156cb85b89",
-        "sources": "aec3bb0ab05879084c7ff42e2ee36a4a241e235984be7a8808cdd6bc74077eff"
+        "jar": "30637633162313deb3e2bd85c0bcb19d13f449029482f016018dbd6e85f22a7f",
+        "sources": "e0821c92a6efc34d9f365684db286d29e17ebe58b2b53daa57a1c5a1143cf1af"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-logging-api": {
       "shasums": {
-        "jar": "941adc17fa7c208001a9aec4aa2830fd585abbe2777c011a9564dab38a1275fb",
-        "sources": "151957501d7e3244435cc81bc216d36ba72c411f72d8609828686646b4cf1c5e"
+        "jar": "e2f414b2b19d1c12385569c44a436a51747cfcb39d8760c48e87acbeb943c1e3",
+        "sources": "e99ec2be9f488ad8adbf3f594497a901171da0dbade134429528870a5320a807"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-logging-slf4j-internal": {
       "shasums": {
-        "jar": "847cee00365a1209ec4aab9537e56e94ac98a983da2a91e7670e51ae4bde1844",
-        "sources": "ead4ca8343c418b657707b1cf29a27b7eaaa6f7699afd2cdbad18de455902587"
+        "jar": "5edf3c9c6e1e689a9a5434e8d8e80b417a54339e5bf1479b1150f6982cb6c494",
+        "sources": "a71f90a86b10e379f466c2440bde2858a348bc7a13bd084b34608aaa3690a582"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-oio-api": {
       "shasums": {
-        "jar": "ed86f128edfe6519d946880e5d6fbd39a7f2d6f62ab9bb9b465e9f7684cb3b46",
-        "sources": "2356aca750af2d651dec7b565b6ce570937b5062beae079d310ef1aac0034eb2"
+        "jar": "32f127c71e2c265a17580b8745a99424338041729ab90db5d4532320eb356f6d",
+        "sources": "78ebf705096229aeb36fed2a377e2efc9e51168a89b9f245ec81aaf7dbcd61e7"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-oio-api-internal": {
       "shasums": {
-        "jar": "879e7108e0d58939ad2864797026b0df5566eca6d6991effaf356c700101e558",
-        "sources": "85939c748fe90b9b7b92c39d76a0cefd011e61f3eaf1a30202f72db9b7b4451d"
+        "jar": "dd460122c6bfc38ac2bd0b2f9baf12d918101898d30a3074c9542b0f50a85a24",
+        "sources": "0690c780bac8a091eb03dbeeae9c25399de8d6fa0f16af7e487fa7bf27daac5d"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-router-api": {
       "shasums": {
-        "jar": "c74cba73e887a90a0e09e37dda76b7b3d3a99242a32108fc23803d0748a54002",
-        "sources": "0e732e1bb2ae1a2e3da2f3ef4010dd3668b1788cd1bd3d934c220a8bd74201e9"
+        "jar": "1b0144f5d9692f1514d4b1bb0d53d0d505595ff81773b2bb279047dfa0d0b1a8",
+        "sources": "c2424bf92893b2a385daa0daef77f2d971832d32d413effd39a3eb23ee1b547a"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-router-utils-internal": {
       "shasums": {
-        "jar": "75155541631a2328a3792c305cd7c5c896d69dc747837f5be5f2774484f5fade",
-        "sources": "23015a8f30e524d58190361dd70c2586f4a399acb06c418b44c000ac054829c7"
+        "jar": "89d3a2e199e2b49066afb6b8ef51e528c70b2cbc29a80ad34e66cb97074aff12",
+        "sources": "e2bc91f1f7b81e29e81719c95e82a1b57cf26e4162b8e40fa5840d961949450f"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-serialization-api": {
       "shasums": {
-        "jar": "29e507f6b450a2540e858b2ecd717917e4ce9e5b021a7aeb41e0b9128d28dc79",
-        "sources": "bfaeca1c2ddf22fcb06bc4d511c5f90b6df7e878c4fba138a6f3151f6ece8dd8"
+        "jar": "a3dfc372a0c4e6ee54d5cf29bd8620bd3fb24f4f83d92898498a4dc47e5e1f06",
+        "sources": "d011203824f0316540b626f96888d77b16ab15786ab169c10a77464c1ff6b4d1"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-serializer-api": {
       "shasums": {
-        "jar": "646fe1ce1776815358961a521a4055224138948987136175729b0ef67c58b011",
-        "sources": "74d279c681ff1ad0d4f51ce61e85256b61a55965691b64383af7a95b64e5ae51"
+        "jar": "58ffaddea0420302047d111c74e85007e27fb1ee2aeef60c8bb8628e547bd5c3",
+        "sources": "168321fd30f1a6ee59e72317d0607b99145abe872e3cf6ee5e6f30f7e6e06b4c"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-serializer-utils": {
       "shasums": {
-        "jar": "75c2cb84917310a554349ebcc9e7d29d50671e7d51d956099b38b55ee3047c07",
-        "sources": "8607b7991e8bac23b42693a13d8d47f1e65826d7448748570993b9e4690549e6"
+        "jar": "6b04019f11154d3e6d9ec986c07b85303bb2a72134967cc2a5baf6311c1efb09",
+        "sources": "6cbf8b91c57f419edd7401f7241d5c2816095accfad5ac230c3131908893e0a6"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-transport-api": {
       "shasums": {
-        "jar": "5ea28ba70ca528b21e90621ec641fff8f9f7a5c231e3a4791b9ec7dd2507503b",
-        "sources": "03aa2c6b4c568218e7c20c7bfb6b21fee58ac1474aedb62355042e1d62500fce"
+        "jar": "e3ed7771e907312ca129985fc93dd7888e798854705fe776ecf980efb00e35d5",
+        "sources": "77a79d6a457245813a273a1f9cd5fd5c526dce2a58351af1095370480aef92af"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "io.servicetalk:servicetalk-utils-internal": {
       "shasums": {
-        "jar": "be06a90d86aae692d0f69ba0da295fe14cb1209365ee360cdda4763d8940e6ba",
-        "sources": "541dde21b5e3f97880131293d22482b19e1867455c5d43f5d7e3f4057d3d0ce6"
+        "jar": "23c75ae7a8e1789d3c6e09b5c3a49b368cd8bfb2d1b8fe83b54541b544bcb722",
+        "sources": "2fc39eb3ac36dfd43ef94cc657a5c34a2f2c8f35515138189137145fb7be4128"
       },
-      "version": "0.42.62"
+      "version": "0.42.65"
     },
     "org.codehaus.mojo:animal-sniffer-annotations": {
       "shasums": {
@@ -704,7 +704,8 @@
       "io.servicetalk:servicetalk-grpc-api",
       "io.servicetalk:servicetalk-grpc-protobuf",
       "io.servicetalk:servicetalk-router-api",
-      "io.servicetalk:servicetalk-serializer-api"
+      "io.servicetalk:servicetalk-serializer-api",
+      "io.servicetalk:servicetalk-utils-internal"
     ],
     "io.servicetalk:servicetalk-grpc-internal": [
       "io.servicetalk:servicetalk-annotations",
@@ -811,7 +812,8 @@
       "io.servicetalk:servicetalk-concurrent-api",
       "io.servicetalk:servicetalk-concurrent-internal",
       "io.servicetalk:servicetalk-serializer-api",
-      "io.servicetalk:servicetalk-utils-internal"
+      "io.servicetalk:servicetalk-utils-internal",
+      "org.slf4j:slf4j-api"
     ],
     "io.servicetalk:servicetalk-transport-api": [
       "io.servicetalk:servicetalk-annotations",
